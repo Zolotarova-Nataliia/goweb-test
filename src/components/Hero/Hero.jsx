@@ -8,9 +8,9 @@ import {
   HeroTitle,
   HeroWrap,
 } from "./Hero.styled";
-export default function Hero() {
+export default function Hero({ id }) {
   return (
-    <HeroWrap>
+    <HeroWrap id={id}>
       <HeroPicture>
         <source srcSet={`${heroPic2x} 2x`} />
         <img src={heroPic} alt="Night town" />

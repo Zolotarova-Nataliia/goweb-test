@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 import * as palette from "../../variables/Variables";
 
 export const Backdrop = styled.div`
@@ -59,7 +59,7 @@ export const ModalWrap = styled.div`
   }
 `;
 
-export const GoBack = styled(Link)`
+export const GoBack = styled(NavHashLink)`
   color: ${palette.MAIN_COLOR};
   display: flex;
   align-items: center;

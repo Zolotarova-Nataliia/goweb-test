@@ -12,6 +12,7 @@ export const HeaderWrap = styled.div`
   align-items: flex-start;
   padding: 24px 26px;
   background-color: transparent;
+  transition: background-color 250ms ease;
   @media screen and (min-width: 768px) {
     height: 70px;
     flex-direction: row;

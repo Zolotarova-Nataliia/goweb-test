@@ -2,6 +2,7 @@ import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
 export const BlogWrap = styled.div`
+  position: relative;
   @media screen and (min-width: 768px) {
     height: 569px;
     display: flex;

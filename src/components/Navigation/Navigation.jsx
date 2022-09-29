@@ -1,22 +1,33 @@
 import { Nav, NavigationLink } from "./Navigation.styled";
+
 export default function Navigation() {
   return (
     <>
       <Nav>
         <li>
-          <NavigationLink>Home</NavigationLink>
+          <NavigationLink smooth to={"/#home"}>
+            Home
+          </NavigationLink>
         </li>
         <li>
-          <NavigationLink>About</NavigationLink>
+          <NavigationLink smooth to={"/#about"}>
+            About
+          </NavigationLink>
         </li>
         <li>
-          <NavigationLink>Cases</NavigationLink>
+          <NavigationLink smooth to={"/#cases"}>
+            Cases
+          </NavigationLink>
         </li>
         <li>
-          <NavigationLink>Blog</NavigationLink>
+          <NavigationLink smooth to={"/#blog"}>
+            Blog
+          </NavigationLink>
         </li>
         <li>
-          <NavigationLink>Contact</NavigationLink>
+          <NavigationLink smooth to={"/#contact"}>
+            Contact
+          </NavigationLink>
         </li>
       </Nav>
     </>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
 export const ContactWrap = styled.div`
+  position: relative;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -74,17 +75,10 @@ export const FormInput = styled.input`
   color: ${palette.SECONDARY_TEXT_COLOR};
   width: 100%;
   height: 57px;
+
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    font-size: 14px;
-    transform: translateY(-23px);
-  }
-
-  @media screen and (min-width: 768px) {
-    &:focus + label,
-    &:not(:placeholder-shown) + label {
-      transform: translateY(-38px);
-    }
+    transform: translateY(-38px);
   }
 `;
 

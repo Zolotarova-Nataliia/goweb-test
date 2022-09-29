@@ -1,11 +1,13 @@
 import blogImg from "../../images/home/blog.jpg";
 import blogPic from "../../images/home/blog.webp";
 import blogPic2x from "../../images/home/blog@2x.webp";
+import { SectionAnchor } from "../SectionAnchor/SectionAnchor.styled";
 import { BlogBtn, BlogWrap, BlogInfoWrap, BlogPic } from "./BlogSection.styled";
 
-export default function BlogSection() {
+export default function BlogSection({ id }) {
   return (
     <BlogWrap>
+      <SectionAnchor id={id} />
       <div>
         <BlogPic>
           <source srcSet={`${blogPic} 1x, ${blogPic2x} 2x`} />

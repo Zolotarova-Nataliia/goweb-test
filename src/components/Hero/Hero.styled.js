@@ -4,9 +4,8 @@ import * as palette from "../../variables/Variables";
 export const HeroWrap = styled.div`
   position: relative;
   padding-top: 120px;
-  height: 533px;
+  height: 100vh;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-
   @media screen and (min-width: 768px) {
     padding-top: 70px;
   }

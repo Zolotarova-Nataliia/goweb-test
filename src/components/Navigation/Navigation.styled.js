@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 import * as palette from "../../variables/Variables";
 
 export const Nav = styled.ul`
@@ -12,21 +12,21 @@ export const Nav = styled.ul`
   }
   @media screen and (min-width: 768px) {
     > li {
-    &:not(:last-child) {
-      margin-right: 20px;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
     }
-  }
   }
   @media screen and (min-width: 1280px) {
     > li {
-    &:not(:last-child) {
-      margin-right: 46px;
+      &:not(:last-child) {
+        margin-right: 46px;
+      }
     }
-  }
   }
 `;
 
-export const NavigationLink = styled(Link)`
+export const NavigationLink = styled(NavHashLink)`
   font-weight: 400;
   font-size: ${palette.TEXT_FONTSIZE_MOB};
   line-height: 22px;
@@ -43,11 +43,11 @@ export const NavigationLink = styled(Link)`
     background-color: ${palette.MAIN_COLOR};
     transition: width 0.35s;
   }
-  &:hover {
+  &:hover,
+  &.active {
     color: ${palette.MAIN_COLOR};
   }
-  &:hover:before ,
-  &:active:before{
+  &:hover:before {
     width: 100%;
   }
   @media screen and (min-width: 768px) {

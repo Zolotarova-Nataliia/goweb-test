@@ -14,6 +14,7 @@ import {
 } from "./ContactSection.styled";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import { SectionAnchor } from "../SectionAnchor/SectionAnchor.styled";
 
 const validate = ({ email }) => {
   const errors = {};
@@ -27,7 +28,7 @@ const validate = ({ email }) => {
   return errors;
 };
 
-export default function ContactSection() {
+export default function ContactSection({ id }) {
   const [isOpen, setIsOpen] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -43,6 +44,7 @@ export default function ContactSection() {
   });
   return (
     <ContactWrap>
+      <SectionAnchor id={id} />
       <div>
         <ContactPic>
           <source srcSet={`${contactPic} 1x, ${contactPic2x} 2x`} />
@@ -53,6 +55,7 @@ export default function ContactSection() {
       <FormWrap>
         <h2>Request Callback</h2>
         <form onSubmit={formik.handleSubmit}>
+          <input type="hidden" name="form-name" value="contact" />
           <SpanWrap>
             <FormInput
               id="name"
@@ -98,7 +101,12 @@ export default function ContactSection() {
             <div style={{ height: 12 }} />
           )}
 
-          <SubmitBtn type="submit">Send</SubmitBtn>
+          <SubmitBtn
+            disabled={formik.errors.email ? true : false}
+            type="submit"
+          >
+            Send
+          </SubmitBtn>
         </form>
         {isOpen && <Modal setIsOpen={setIsOpen} />}
       </FormWrap>
