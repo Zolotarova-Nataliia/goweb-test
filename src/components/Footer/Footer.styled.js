@@ -22,23 +22,6 @@ export const BtnWrap = styled.div`
   }
 `;
 
-export const FooterBtn = styled.button`
-  padding: 0;
-  width: 35px;
-  height: 35px;
-  justify-content: center;
-  background: transparent;
-  > svg {
-    transition: fill 0.3s;
-    fill: ${palette.MAIN_TEXT_COLOR};
-  }
-  &:hover {
-    > svg {
-      fill: ${palette.MAIN_COLOR};
-    }
-  }
-`;
-
 export const TextWrap = styled.div`
   color: ${palette.MAIN_TEXT_COLOR};
   display: flex;

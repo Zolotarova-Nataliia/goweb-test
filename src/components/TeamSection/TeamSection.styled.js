@@ -66,22 +66,12 @@ export const PersonPicWrap = styled.div`
   display: grid;
   grid-template-rows: (3fr 1fr);
   grid-row-gap: 16px;
-
   color: ${palette.SECONDARY_TEXT_COLOR};
   h3 {
     font-size: 20px;
     margin-bottom: 8px;
     font-weight: 400;
   }
-  picture {
-    width: 100%;
-    height: 100%;
-    > img {
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
   @media screen and (min-width: 768px) {
     h3 {
       font-size: ${palette.TITLE_FONTSIZE_MOB};
@@ -89,5 +79,55 @@ export const PersonPicWrap = styled.div`
     p {
       font-size: ${palette.TEXT_FONTSIZE};
     }
+  }
+`;
+
+export const Overlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  position: absolute;
+  overflow: auto;
+  > button {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  button:hover {
+    > svg {
+      fill: rgba(255, 255, 255, 0.8);
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    > button {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+`;
+export const PersonPic = styled.picture`
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: transform 250ms linear;
+  > img {
+    height: 100%;
+    object-fit: cover;
+  }
+  &:hover {
+    transform: scale(1.05);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.16),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+  &:hover ${Overlay} {
+    top: 0;
+    left: 0;
   }
 `;

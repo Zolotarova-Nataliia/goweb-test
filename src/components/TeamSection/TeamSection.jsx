@@ -7,8 +7,11 @@ import secondPersonPic2x from "../../images/team/person2@2x.webp";
 import thirdPersonImg from "../../images/team/person3.jpg";
 import thirdPersonPic from "../../images/team/person3.webp";
 import thirdPersonPic2x from "../../images/team/person3@2x.webp";
+import SocialLinks from "../SocialLinks/SocialLinks";
 import {
   HeadWrap,
+  Overlay,
+  PersonPic,
   PersonPicWrap,
   TeamSectionWrap,
   TeamWrap,
@@ -27,30 +30,42 @@ export default function TeamSection() {
       </HeadWrap>
       <TeamWrap>
         <PersonPicWrap>
-          <picture>
+          <PersonPic>
             <source srcSet={`${firstPersonPic} 1x, ${firstPersonPic2x} 2x`} />
             <img src={firstPersonImg} alt="Finance Ledger President" />
-          </picture>
+
+            <Overlay>
+              <SocialLinks />
+            </Overlay>
+          </PersonPic>
           <div>
             <h3>John Doe</h3>
             <p>President</p>
           </div>
         </PersonPicWrap>
         <PersonPicWrap>
-          <picture>
+          <PersonPic>
             <source srcSet={`${secondPersonPic} 1x, ${secondPersonPic2x} 2x`} />
             <img src={secondPersonImg} alt="Finance Ledger Marketing Head" />
-          </picture>
+
+            <Overlay>
+              <SocialLinks />
+            </Overlay>
+          </PersonPic>
           <div>
             <h3>Jane Doe</h3>
             <p>Vice President</p>
           </div>
         </PersonPicWrap>
         <PersonPicWrap>
-          <picture>
+          <PersonPic>
             <source srcSet={`${thirdPersonPic} 1x, ${thirdPersonPic2x} 2x`} />
             <img src={thirdPersonImg} alt="Finance Ledger Vice Presedent" />
-          </picture>
+
+            <Overlay>
+              <SocialLinks />
+            </Overlay>
+          </PersonPic>
           <div>
             <h3>Steve Smith</h3>
             <p>Marketing Head</p>
