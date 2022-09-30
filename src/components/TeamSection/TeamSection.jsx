@@ -1,12 +1,4 @@
-import firstPersonImg from "../../images/team/person1.jpg";
-import firstPersonPic from "../../images/team/person1.webp";
-import firstPersonPic2x from "../../images/team/person1@2x.webp";
-import secondPersonImg from "../../images/team/person2.jpg";
-import secondPersonPic from "../../images/team/person2.webp";
-import secondPersonPic2x from "../../images/team/person2@2x.webp";
-import thirdPersonImg from "../../images/team/person3.jpg";
-import thirdPersonPic from "../../images/team/person3.webp";
-import thirdPersonPic2x from "../../images/team/person3@2x.webp";
+import { team } from "../helpers/team";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import {
   HeadWrap,
@@ -29,48 +21,31 @@ export default function TeamSection() {
         </p>
       </HeadWrap>
       <TeamWrap>
-        <PersonPicWrap>
-          <PersonPic>
-            <source srcSet={`${firstPersonPic} 1x, ${firstPersonPic2x} 2x`} />
-            <img src={firstPersonImg} alt="Finance Ledger President" />
+        {team.map((item, index) => {
+          return (
+            <PersonPicWrap key={index}>
+              <PersonPic>
+                <source
+                  srcSet={`${item.webp} 1x, ${item.webp2} 2x`}
+                  type="image/webp"
+                />
+                <source
+                  srcSet={`${item.jpg} 1x, ${item.jpg2} 2x`}
+                  type="image/jpeg"
+                />
+                <img src={item.jpg} alt={item.alt} />
 
-            <Overlay>
-              <SocialLinks />
-            </Overlay>
-          </PersonPic>
-          <div>
-            <h3>John Doe</h3>
-            <p>President</p>
-          </div>
-        </PersonPicWrap>
-        <PersonPicWrap>
-          <PersonPic>
-            <source srcSet={`${secondPersonPic} 1x, ${secondPersonPic2x} 2x`} />
-            <img src={secondPersonImg} alt="Finance Ledger Marketing Head" />
-
-            <Overlay>
-              <SocialLinks />
-            </Overlay>
-          </PersonPic>
-          <div>
-            <h3>Jane Doe</h3>
-            <p>Vice President</p>
-          </div>
-        </PersonPicWrap>
-        <PersonPicWrap>
-          <PersonPic>
-            <source srcSet={`${thirdPersonPic} 1x, ${thirdPersonPic2x} 2x`} />
-            <img src={thirdPersonImg} alt="Finance Ledger Vice Presedent" />
-
-            <Overlay>
-              <SocialLinks />
-            </Overlay>
-          </PersonPic>
-          <div>
-            <h3>Steve Smith</h3>
-            <p>Marketing Head</p>
-          </div>
-        </PersonPicWrap>
+                <Overlay>
+                  <SocialLinks />
+                </Overlay>
+              </PersonPic>
+              <div>
+                <h3>{item.name}</h3>
+                <p>{item.position}</p>
+              </div>
+            </PersonPicWrap>
+          );
+        })}
       </TeamWrap>
     </TeamSectionWrap>
   );

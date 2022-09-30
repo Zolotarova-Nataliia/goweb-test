@@ -1,6 +1,7 @@
-import contactImg from "../../images/home/contact.jpg";
-import contactPic from "../../images/home/contact.webp";
-import contactPic2x from "../../images/home/contact@2x.webp";
+import contactJpg from "../../images/home/contact.jpg";
+import contactJpg2x from "../../images/home/contact@2x.jpg";
+import contactWebp from "../../images/home/contact.webp";
+import contactWebp2x from "../../images/home/contact@2x.webp";
 import { useFormik } from "formik";
 import {
   ContactPic,
@@ -20,13 +21,19 @@ const validate = ({ email }) => {
   const errors = {};
 
   if (!email) {
-    errors.email = "Email is required";
+    errors.email = "This is a required field";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
     errors.email = "Invalid email address";
   }
 
   return errors;
 };
+
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export default function ContactSection({ id }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,26 +43,39 @@ export default function ContactSection({ id }) {
       name: "",
     },
     validate,
-    onSubmit: () => {
+    onSubmit: async (values) => {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          ...values,
+          "form-name": "contact",
+        }),
+      });
       setIsOpen(true);
-      formik.values.email = "";
-      formik.values.name = "";
+      formik.resetForm();
     },
   });
   return (
     <ContactWrap>
-      <SectionAnchor id={id} />
       <div>
         <ContactPic>
-          <source srcSet={`${contactPic} 1x, ${contactPic2x} 2x`} />
-          <img src={contactImg} alt="Working man" />
+          <source
+            srcSet={`${contactWebp} 1x, ${contactWebp2x} 2x`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${contactJpg} 1x, ${contactJpg2x} 2x`}
+            type="image/jpeg"
+          />
+          <img src={contactJpg} alt="Working man" />
         </ContactPic>
       </div>
 
       <FormWrap>
+        <SectionAnchor id={id} />
         <h2>Request Callback</h2>
-        <form onSubmit={formik.handleSubmit}>
-          <input type="hidden" name="form-name" value="contact" />
+        <form onSubmit={formik.handleSubmit} method="post">
           <SpanWrap>
             <FormInput
               id="name"
@@ -102,7 +122,7 @@ export default function ContactSection({ id }) {
           )}
 
           <SubmitBtn
-            disabled={formik.errors.email ? true : false}
+            disabled={!!formik.errors.email || formik.isSubmitting}
             type="submit"
           >
             Send

@@ -1,5 +1,7 @@
-import heroPic from "../../images/home/showcase.webp";
-import heroPic2x from "../../images/home/showcase@2x.webp";
+import heroJpg from "../../images/home/showcase.jpg";
+import heroJpg2x from "../../images/home/showcase@2x.jpg";
+import heroWebp from "../../images/home/showcase.webp";
+import heroWebp2x from "../../images/home/showcase@2x.webp";
 import {
   HeroBtn,
   HeroInfo,
@@ -12,8 +14,9 @@ export default function Hero({ id }) {
   return (
     <HeroWrap id={id}>
       <HeroPicture>
-        <source srcSet={`${heroPic2x} 2x`} />
-        <img src={heroPic} alt="Night town" />
+        <source srcSet={`${heroWebp} 1x, ${heroWebp2x} 2x`} type="image/webp" />
+        <source srcSet={`${heroJpg} 1x, ${heroJpg2x} 2x`} type="image/jpeg" />
+        <img src={heroJpg} alt="Night town" />
       </HeroPicture>
       <HeroInfo>
         <HeroTitle>The Sky Is The Limit</HeroTitle>

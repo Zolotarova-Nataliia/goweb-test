@@ -1,5 +1,7 @@
-import aboutPic from "../../images/home/people.webp";
-import aboutPic2x from "../../images/home/people@2x.webp";
+import aboutWebp from "../../images/home/people.webp";
+import aboutWebp2x from "../../images/home/people@2x.webp";
+import aboutJpg from "../../images/home/people.jpg";
+import aboutJpg2x from "../../images/home/people@2x.jpg";
 import { SectionAnchor } from "../SectionAnchor/SectionAnchor.styled";
 import { AboutBtn, AboutWrap, InfoWrap, TeamPic } from "./AboutSection.styled";
 
@@ -9,8 +11,15 @@ export default function AboutSection({ id }) {
       <SectionAnchor id={id} />
       <div>
         <TeamPic>
-          <source srcSet={`${aboutPic2x} 2x`} />
-          <img src={aboutPic} alt="Our team" />
+          <source
+            srcSet={`${aboutWebp} 1x, ${aboutWebp2x} 2x`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${aboutJpg} 1x, ${aboutJpg2x} 2x`}
+            type="image/jpeg"
+          />
+          <img src={aboutJpg} alt="Our team" />
         </TeamPic>
       </div>
       <InfoWrap>

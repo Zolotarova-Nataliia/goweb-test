@@ -2,7 +2,6 @@ import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
 export const ContactWrap = styled.div`
-  position: relative;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -30,6 +29,7 @@ export const ContactPic = styled.picture`
 `;
 
 export const FormWrap = styled.div`
+  position: relative;
   height: 440px;
   display: flex;
   flex-direction: column;
