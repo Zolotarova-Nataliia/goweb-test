@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
-export const TeamSectionWrap = styled.div`
+export const TeamSectionWrap = styled.section`
   padding: 72px 20px 50px 20px;
 
   @media screen and (min-width: 1280px) {

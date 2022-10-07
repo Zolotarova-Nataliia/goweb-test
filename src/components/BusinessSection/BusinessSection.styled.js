@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
-export const BusinessSectionWrap = styled.div`
+export const BusinessSectionWrap = styled.section`
   padding: 56px 20px 40px 20px;
   position: relative;
 

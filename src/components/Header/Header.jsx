@@ -29,8 +29,8 @@ export default function Header() {
         backgroundColor: isScrolled ? " rgba(0, 0, 0, 0.8)" : undefined,
       }}
     >
-      <Logo></Logo>
-      <Navigation></Navigation>
+      <Logo />
+      <Navigation />
     </HeaderWrap>
   );
 }

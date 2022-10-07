@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
-export const ContactWrap = styled.div`
+export const ContactWrap = styled.section`
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;

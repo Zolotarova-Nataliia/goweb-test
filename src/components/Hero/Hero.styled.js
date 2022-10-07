@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
-export const HeroWrap = styled.div`
+export const HeroWrap = styled.section`
   position: relative;
   padding-top: 120px;
   height: 100vh;
