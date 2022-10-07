@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderWrap = styled.div`
+export const HeaderWrap = styled.header`
   height: 120px;
   z-index: 1;
   left: 0;

@@ -11,12 +11,14 @@ export default function HashLinkPage() {
   return (
     <div>
       <Header />
-      <Hero id="home" />
-      <AboutSection id="about" />
-      <BusinessSection id="cases" />
-      <BlogSection id="blog" />
-      <TeamSection />
-      <ContactSection id="contact" />
+      <main>
+        <Hero id="home" />
+        <AboutSection id="about" />
+        <BusinessSection id="cases" />
+        <BlogSection id="blog" />
+        <TeamSection />
+        <ContactSection id="contact" />
+      </main>
       <Footer />
     </div>
   );
