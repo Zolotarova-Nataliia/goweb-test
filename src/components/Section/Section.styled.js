@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import * as palette from "../../variables/Variables";
 
-export const AboutWrap = styled.section`
+export const SectionWrap = styled.section`
   position: relative;
   @media screen and (min-width: 768px) {
+    flex-direction: ${(props) => props.section === "blog" && "row-reverse"};
     display: flex;
     height: 581px;
     justify-content: space-between;
@@ -11,16 +12,13 @@ export const AboutWrap = styled.section`
       flex: 1 50%;
     }
   }
-  @media screen and (min-width: 768px) {
-    height: 569px;
-  }
   @media screen and (min-width: 1280px) {
     height: 460px;
   }
 `;
 
-export const TeamPic = styled.picture`
-  height: 220px;
+export const SectionPic = styled.picture`
+  height: 247px;
   > img {
     height: 100%;
     width: 100%;
@@ -31,14 +29,14 @@ export const TeamPic = styled.picture`
   }
 `;
 
-export const InfoWrap = styled.div`
-  background: ${palette.MAIN_COLOR};
+export const SectionInfoWrap = styled.div`
+  background: ${palette.SECONDARY_COLOR};
   color: ${palette.MAIN_TEXT_COLOR};
-  padding: 79px 20px;
+  padding: 48px 20px 58px 20px;
   font-weight: 400;
   > p {
     font-size: ${palette.TEXT_FONTSIZE_MOB};
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
   > h2 {
     font-size: ${palette.TITLE_FONTSIZE_MOB};
@@ -46,7 +44,7 @@ export const InfoWrap = styled.div`
     margin-bottom: 24px;
   }
   @media screen and (min-width: 768px) {
-    padding: 62px 32px;
+    padding: 59px 32px;
     > p {
       font-size: ${palette.TEXT_FONTSIZE};
       margin-bottom: 16px;
@@ -57,14 +55,17 @@ export const InfoWrap = styled.div`
       margin-bottom: 24px;
     }
   }
+  @media screen and (min-width: 1280px) {
+    padding: 80px 28px;
+  }
 `;
 
-export const AboutBtn = styled.button`
+export const SectionBtn = styled.button`
   width: 146px;
   height: 54px;
   background: transparent;
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${palette.TEXT_FONTSIZE_MOB};
   color: ${palette.MAIN_TEXT_COLOR};
   border: 1px solid ${palette.MAIN_TEXT_COLOR};
   border-radius: 5px;
@@ -72,7 +73,7 @@ export const AboutBtn = styled.button`
   margin-top: 9px;
   &:hover {
     background: rgba(255, 255, 255, 0.8);
-    border: 1px solid ${palette.MAIN_COLOR};
-    color: ${palette.MAIN_COLOR};
+    border: 1px solid ${(props) => props.color};
+    color: ${(props) => props.color};
   }
 `;
